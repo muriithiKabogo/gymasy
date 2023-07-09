@@ -1,5 +1,6 @@
-<h1>StaticPages#index</h1>
-<p>Find me in app/views/static_pages/index.html.erb</p>
+<h1>Dashboard</h1>
+
+<p><%= link_to "create a gym", new_gym_path%></p>
 
 
-<%= link_to "sign out", destroy_admin_session_path, data: {turbo_method: :delete} %>
+<p><%= link_to "sign out", destroy_admin_session_path, data: {turbo_method: :delete} %></p>

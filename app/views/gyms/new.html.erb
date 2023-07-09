@@ -1,0 +1,15 @@
+
+<%if @admin.gyms.empty?%>
+	<%= form_with(model: @gym, local: true) do |f| %>
+	<%= f.label :name %>
+	<p><%= f.text_field :name%></p>
+	<%= f.submit "create Gym" %>
+	<%end%>
+
+<%else%>
+ 
+ <p>You already have a gym</p>
+
+ <%=link_to "Home", root_path%>
+
+<%end%>
