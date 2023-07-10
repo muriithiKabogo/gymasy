@@ -8,7 +8,7 @@ class GymsController < ApplicationController
 
 	def create
 		@admin = current_admin
-		if @admin.gyms.create(name: params[:name])
+		if @admin.gyms.create(name: params[:gym][:name])
 			redirect_to root_path
 		else
 			render 'new', status: :unprocessable_entity

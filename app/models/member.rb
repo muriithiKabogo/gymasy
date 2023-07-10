@@ -1,8 +1,7 @@
-class Admin < ApplicationRecord
+class Member < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :gyms
-  has_many :members
+         belongs_to :admin
 end
