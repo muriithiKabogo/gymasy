@@ -6,7 +6,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
   #mailer options
-  host = 'https://gym-management-software.onrender.com/'
+  host = 'gymasy.com/'
     config.action_mailer.default_url_options = { host: host }
     config.action_mailer.delivery_method = :smtp
       config.action_mailer.smtp_settings = {
