@@ -1,0 +1,12 @@
+<h1>People who came to the Gym today</h1>
+
+
+<%=link_to "Checkin Members", new_checkin_path%>
+
+<%@checkins.each do |checkin|%>
+<p>
+ <%=Member.find(checkin.member_id).email%>
+</p>
+<%end%>
+
+
