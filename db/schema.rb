@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_112813) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_155508) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_112813) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "checkins", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.string "paymentMode"
+    t.boolean "paid"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_checkins_on_member_id"
   end
 
   create_table "gyms", force: :cascade do |t|
@@ -49,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_112813) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "checkins", "members"
   add_foreign_key "gyms", "admins"
   add_foreign_key "members", "admins"
 end
