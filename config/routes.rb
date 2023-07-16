@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
 
-  devise_for :members, path: 'members' ,controllers: { sessions: "members/sessions"}
-  devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions"}
+  devise_for :members, path: 'members' ,controllers: { sessions: "members/sessions", registrations: "members/registrations" }
+  devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", registrations: "admins/registrations" }
   get 'static_pages/index'
   root 'static_pages#index'
   resources :gyms

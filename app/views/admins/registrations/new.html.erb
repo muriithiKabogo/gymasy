@@ -1,31 +1,76 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "admins/shared/error_messages", resource: resource %>
+    <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <!-- Register -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+              <div class="app-brand justify-content-center">
+                <a href="index.html" class="app-brand-link gap-2">
+                  
+                  <span class="app-brand-text demo text-body fw-bolder">Gym Manager</span>
+                </a>
+              </div>
+              <!-- /Logo -->
+        
+              <h4 class="mb-2">Adventure starts here 🚀</h4>
+              <p class="mb-4">Make your Gym management easy and fun!</p>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                <%= form_for(resource, as: resource_name, id: "formAuthentication" ,class: "mb-3", url: registration_path(resource_name)) do |f| %>
+                    <%= render "admins/shared/error_messages", resource: resource %>
+          
+                <div class="mb-3">
+                  <%= f.label :email, class: "form-label" %>
+                  
+                   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your email" %>
+                </div>
+                <div class="mb-3 form-password-toggle">
+                  <div class="d-flex justify-content-between">
+                  
+                    <%= f.label :password, class: "form-label" %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %>
+                  </div>
+                  <div class="input-group input-group-merge">
+                  
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+                    <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: '............' %>
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
+                </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+                 <div class="mb-3 form-password-toggle">
+                  <div class="d-flex justify-content-between">
+                  
+                    <%= f.label :password_confirmation, class: "form-label" %>
+    
+                  </div>
+                  <div class="input-group input-group-merge">
+                  
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+                    <%= f.password_field :password_confirmation, autocomplete: "current-password", class: "form-control", placeholder: '............' %>
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <!-- we likely put the site agreement here -->
+                </div>
+                <div class="mb-3">
+                  <%= f.submit "Sign Up", class: "btn btn-primary d-grid w-100" %>
+                </div>
+              <%end%>
 
-<%= render "admins/shared/links" %>
-
-
+              <p class="text-center">
+                <span>Already have an account?</span>
+                <a href="auth-register-basic.html">
+                    <span><%= render "admins/shared/links" %></span>
+                </a>
+              </p>
+            </div>
+          </div>
+          <!-- /Register -->
+        </div>
+      </div>
+    </div>

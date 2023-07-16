@@ -1,10 +1,10 @@
-<h1>Dashboard - <%=@admin.gyms.first.name%></h1>
+
 
 <%if @admin.gyms.empty?%>
 	<p><%= link_to "create a gym", new_gym_path%></p>
 
 <%else%>
-
+	<h1>Dashboard - <%=@admin.gyms.first.name%></h1>
 	<p><%= link_to "Register a new user", new_member_path%></p>
 
 	<p><%= link_to "Check in Members", new_checkin_path%></p>
