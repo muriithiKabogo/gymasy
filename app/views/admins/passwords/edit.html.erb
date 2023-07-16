@@ -1,25 +1,73 @@
-<h2>Change your password</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "admins/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+ <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <!-- Register -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+              <div class="app-brand justify-content-center">
+                <a href="index.html" class="app-brand-link gap-2">
+                  
+                  <span class="app-brand-text demo text-body fw-bolder">Gym Manager</span>
+                </a>
+              </div>
+              <!-- /Logo -->
+        
+              <h4 class="mb-2">Change your password</h4>
+              
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+                <%= form_for(resource, as: resource_name, id: "formAuthentication" ,class: "mb-3" ,url: password_path(resource_name), html: { method: :put }) do |f| %>
+                    <%= render "admins/shared/error_messages", resource: resource %>
+                    <%= f.hidden_field :reset_password_token %>
+          
+              
+                <div class="mb-3 form-password-toggle">
+                  <div class="d-flex justify-content-between">
+                  
+                    <%= f.label :password, class: "form-label" %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %>
+                  </div>
+                  <div class="input-group input-group-merge">
+                  
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+                    <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: '............' %>
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
+                </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+                 <div class="mb-3 form-password-toggle">
+                  <div class="d-flex justify-content-between">
+                  
+                    <%= f.label :password_confirmation, class: "form-label" %>
+    
+                  </div>
+                  <div class="input-group input-group-merge">
+                  
 
-<%= render "admins/shared/links" %>
+                    <%= f.password_field :password_confirmation, autocomplete: "current-password", class: "form-control", placeholder: '............' %>
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <!-- we likely put the site agreement here -->
+                </div>
+                <div class="mb-3">
+                  <%= f.submit "Change my password", class: "btn btn-primary d-grid w-100" %>
+                </div>
+              <%end%>
+
+              <p class="text-center">
+                <span>Already have an account?</span>
+                <a href="auth-register-basic.html">
+                    <span><%= render "admins/shared/links" %></span>
+                </a>
+              </p>
+            </div>
+          </div>
+          <!-- /Register -->
+        </div>
+      </div>
+    </div>
