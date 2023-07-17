@@ -6,4 +6,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "themes/helpers"
+import "themes/perfect-scrollbar"
+import "themes/menu"
 import "themes/main"
