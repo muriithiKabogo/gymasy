@@ -6,6 +6,7 @@ class CheckinsController < ApplicationController
   end
 
   def new
+    @admin = current_admin
     @members = Member.all
   end
 
