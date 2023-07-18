@@ -96,7 +96,7 @@
                       <tr>
                         <th>Name</th>
                         <th>Email Address</th>
-                        <th>Users</th>
+                        <th></th>
                         <th>Status</th>
                         <th>Actions</th>
                       </tr>
@@ -112,7 +112,8 @@
                         </td>
                         <td><span class="badge bg-label-primary me-1">Active</span></td>
                         <td>
-                          <%= button_to "checkin", checkins_url, data: { turbo_method: :post }, params: { id: member.id } %>
+                          <%= button_to "checkin", checkins_url, data: { turbo_method: :post }, params: { id: member.id }, class: "btn btn-primary " %>
+
                         </td>
                        
                       </tr>

@@ -5,6 +5,7 @@ class MembersController < ApplicationController
   end
 
   def new
+    @admin = current_admin
     @member = Member.new
   end
 
