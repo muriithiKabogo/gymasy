@@ -13,7 +13,7 @@ class CheckinsController < ApplicationController
 
   def create
     @member = Member.find(params[:id])
-    if !Checkin.exists?(member_id: 10,created_at: Time.now.beginning_of_day..Time.now.end_of_day) == true
+    if !Checkin.exists?(member_id: 10,created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day) == true
       @member.checkins.create(paid: false)
       redirect_to checkins_path
     else
