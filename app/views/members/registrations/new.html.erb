@@ -1,0 +1,75 @@
+<div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner">
+      <!-- Register -->
+      <div class="card">
+        <div class="card-body">
+          <!-- Logo -->
+          <div class="app-brand justify-content-center">
+            <a href="index.html" class="app-brand-link gap-2">
+
+              <span class="app-brand-text demo text-body fw-bolder">Gym Manager</span>
+            </a>
+          </div>
+          <!-- /Logo -->
+
+          <h4 class="mb-2">Adventure starts here 🚀</h4>
+          <p class="mb-4">Tracking your gym goals is easy!</p>
+
+          <%= form_for(resource, as: resource_name, id: "formAuthentication" ,class: "mb-3", url: registration_path(resource_name)) do |f| %>
+            <%= render "members/shared/error_messages", resource: resource %>
+
+            <div class="mb-3">
+              <%= f.label :email, class: "form-label" %>
+
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Enter your email" %>
+            </div>
+            <div class="mb-3 form-password-toggle">
+              <div class="d-flex justify-content-between">
+
+                <%= f.label :password, class: "form-label" %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+              </div>
+              <div class="input-group input-group-merge">
+
+
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: '............' %>
+                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+              </div>
+            </div>
+
+            <div class="mb-3 form-password-toggle">
+              <div class="d-flex justify-content-between">
+
+                <%= f.label :password_confirmation, class: "form-label" %>
+
+              </div>
+              <div class="input-group input-group-merge">
+
+
+                <%= f.password_field :password_confirmation, autocomplete: "current-password", class: "form-control", placeholder: '............' %>
+                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+              </div>
+            </div>
+            <div class="mb-3">
+              <!-- we likely put the site agreement here -->
+            </div>
+            <div class="mb-3">
+              <%= f.submit "Sign Up", class: "btn btn-primary d-grid w-100" %>
+            </div>
+          <%end%>
+
+          <p class="text-center">
+            <span>Already have an account?</span>
+            <a href="auth-register-basic.html">
+              <span><%= render "members/shared/links" %></span>
+            </a>
+          </p>
+        </div>
+      </div>
+      <!-- /Register -->
+    </div>
+  </div>
+</div>
