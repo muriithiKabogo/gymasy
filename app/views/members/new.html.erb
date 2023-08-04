@@ -91,6 +91,11 @@
                 	<!-- table number 1 -->
             
                <div class="card mb-4">
+                 <% if flash[:notice] %>
+                   <div class="alert alert-danger">
+                     <%= flash[:notice] %>
+                   </div>
+                 <% end %>
                     <div class="card-header d-flex justify-content-between align-items-center">
                       <h5 class="mb-0">Register new members</h5>
          
@@ -107,11 +112,8 @@
                         <div class="mb-3">
                           
                           <%= f.label :email, class: "form-label", for: "basic-default-email" %>
-                          <div class="input-group input-group-merge">
-                           
-                            <%= f.text_field :email, id: "basic-default-email", class: "form-control", placeholder: "john.doe@example.com", aria_label: "john.doe",aria_describedby: "basic-default-email2"  %>
-                          
-                          </div>
+
+                          <%= f.text_field :email, id: "basic-default-email", class: "form-control input-group input-group-merge", placeholder: "john.doe@example.com", aria_label: "john.doe",aria_describedby: "basic-default-email2"  %>
       
                         </div>
                         <div class="mb-3">

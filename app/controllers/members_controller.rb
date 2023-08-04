@@ -11,9 +11,11 @@ class MembersController < ApplicationController
 
   def create
     @admin = current_admin
-    if @admin.members.create(email: params[:member][:email], firstname: params[:member][:firstname], password: params[:member][:password])
+    @member = @admin.members.build(email: params[:member][:email], firstname: params[:member][:firstname], password: params[:member][:password])
+    if @member.save
       redirect_to root_path
     else
+      flash[:notice] = "This person is already registered"
       render :new, status: :unprocessable_entity
     end
   end
