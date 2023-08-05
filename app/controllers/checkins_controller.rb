@@ -8,7 +8,7 @@ class CheckinsController < ApplicationController
 
   def new
     @admin = current_admin
-    @members = Member.all
+    @members =  Member.paginate(page: params[:page], per_page: 10)
   end
 
   def create

@@ -107,7 +107,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                    	<%@members.each do |member|%>
+
+                    	<% @members.each do |member|%>
                       <tr>
 
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%=member.firstname%></strong></td>
@@ -119,9 +120,14 @@
                        
                       </tr>
                        <%end%>
+                    <tr>
+                      <td><%= will_paginate @members, :page_links => false %></td>
+                    </tr>
                     </tbody>
+
                   </table>
                 </div>
+
               </div>
 <!-- table number 1 -->
                 </div>
