@@ -112,7 +112,6 @@
 
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%=member.firstname%></strong></td>
                         <td><%=member.email%></td>
-
                         <td>
                           <%= button_to "checkin", checkins_url, data: { turbo_method: :post }, params: { id: member.id }, class: "btn btn-primary " %>
 
