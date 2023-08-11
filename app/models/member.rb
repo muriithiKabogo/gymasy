@@ -5,4 +5,8 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
          belongs_to :admin
          has_many :checkins
+
+  def self.ransackable_attributes(auth_object = nil)
+    [ "firstname"]
+  end
 end

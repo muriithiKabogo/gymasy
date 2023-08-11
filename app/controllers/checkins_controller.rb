@@ -8,7 +8,8 @@ class CheckinsController < ApplicationController
 
   def new
     @admin = current_admin
-    @members =  Member.paginate(page: params[:page], per_page: 10)
+    @q = Member.ransack(params[:q])
+    @members = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
   end
 
   def create
@@ -22,4 +23,5 @@ class CheckinsController < ApplicationController
       redirect_to new_checkin_path
     end
   end
+
 end
