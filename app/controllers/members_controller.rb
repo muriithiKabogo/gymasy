@@ -3,6 +3,7 @@ class MembersController < ApplicationController
   before_action :authenticate_member!, only: :index
   
   def index
+    @checkins = current_member.checkins.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
   end
 
   def new
