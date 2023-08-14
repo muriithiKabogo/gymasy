@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Name it however you want
   post 'create_member' => 'members#create', as: :create_member
   resources :checkins
+
+
+  get '/member' => "members#index", :as => :member_root
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

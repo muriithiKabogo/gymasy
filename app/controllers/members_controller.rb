@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   before_action :authenticate_admin! , except: :index
+  before_action :authenticate_member!, only: :index
   
   def index
   end
