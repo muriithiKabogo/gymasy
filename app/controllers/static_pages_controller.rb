@@ -4,7 +4,13 @@ class StaticPagesController < ApplicationController
     @admin = current_admin
     @gym = Gym.find_by(admin_id: current_admin.id)
     @members = @admin.members.all
-    @checkins = @gym.checkins.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+
+    #check if Gym is Nil. See this again
+    if @gym == nil
+    
+    else
+      @checkins = @gym.checkins.where(created_at: Time.zone.now.beginning_of_month..Time.zone.now.end_of_month)
+    end
 
   end
 

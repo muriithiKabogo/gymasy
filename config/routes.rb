@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'memberships/new'
+  get 'memberships/index'
   
 
   devise_for :members, path: 'members' ,controllers: { sessions: "members/sessions", registrations: "members/registrations" }
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   post 'create_member' => 'members#create', as: :create_member
   resources :checkins
   resources :membership_types
+  resources :memberships
 
 
   get '/member' => "members#index", :as => :member_root

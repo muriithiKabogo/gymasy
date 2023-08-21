@@ -117,6 +117,7 @@
                         <th>Name</th>
                         <th>Email Address</th>
                         <th>Actions</th>
+                        <th>Membership Type</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -130,11 +131,16 @@
                           <%= button_to "checkin", checkins_url, data: { turbo_method: :post }, params: { id: member.id }, class: "btn btn-primary " %>
 
                         </td>
-                       
+                        <%if member.memberships.present?%>
+
+                        <td><%= @admin.membership_types.find(member.memberships.last.membership_type_id).membership_name%></td>
+                        <%else%>
+                        <td><%= link_to "Assign Membership", new_membership_url(id: member.id ) , class: "btn btn-primary " %></td>
+                       <%end%>
                       </tr>
                        <%end%>
                     <tr>
-                      <td><%= will_paginate @members, :page_links => false %></td>
+                      <td><%= will_paginate @members, :page_links => true%></td>
                     </tr>
                     </tbody>
 

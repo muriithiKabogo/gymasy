@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_16_131619) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_21_081910) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,10 +73,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_16_131619) do
     t.index ["gym_id"], name: "index_membership_types_on_gym_id"
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "membership_type_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_memberships_on_member_id"
+    t.index ["membership_type_id"], name: "index_memberships_on_membership_type_id"
+  end
+
   add_foreign_key "checkins", "gyms"
   add_foreign_key "checkins", "members"
   add_foreign_key "gyms", "admins"
   add_foreign_key "members", "admins"
   add_foreign_key "membership_types", "admins"
   add_foreign_key "membership_types", "gyms"
+  add_foreign_key "memberships", "members"
+  add_foreign_key "memberships", "membership_types"
 end
