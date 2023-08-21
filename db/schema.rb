@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_155508) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_16_131619) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,6 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_155508) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "gym_id"
+    t.index ["gym_id"], name: "index_checkins_on_gym_id"
     t.index ["member_id"], name: "index_checkins_on_member_id"
   end
 
@@ -59,7 +61,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_155508) do
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
 
+  create_table "membership_types", force: :cascade do |t|
+    t.string "membership_name"
+    t.integer "duration"
+    t.integer "price"
+    t.bigint "gym_id", null: false
+    t.bigint "admin_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_membership_types_on_admin_id"
+    t.index ["gym_id"], name: "index_membership_types_on_gym_id"
+  end
+
+  add_foreign_key "checkins", "gyms"
   add_foreign_key "checkins", "members"
   add_foreign_key "gyms", "admins"
   add_foreign_key "members", "admins"
+  add_foreign_key "membership_types", "admins"
+  add_foreign_key "membership_types", "gyms"
 end

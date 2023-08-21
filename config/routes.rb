@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   devise_for :members, path: 'members' ,controllers: { sessions: "members/sessions", registrations: "members/registrations" }
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", registrations: "admins/registrations" }
   get 'static_pages/index'
+  get 'static_pages/settings'
   root 'static_pages#index'
   resources :gyms
   resources :members, except: :create
   # Name it however you want
   post 'create_member' => 'members#create', as: :create_member
   resources :checkins
+  resources :membership_types
 
 
   get '/member' => "members#index", :as => :member_root

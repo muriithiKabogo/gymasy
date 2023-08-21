@@ -9,4 +9,5 @@ class Member < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     [ "firstname"]
   end
+
 end

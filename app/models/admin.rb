@@ -5,4 +5,5 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :gyms
   has_many :members
+  has_many :membership_types
 end

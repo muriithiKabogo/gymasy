@@ -7,6 +7,7 @@ class GymsController < ApplicationController
 	end
 
 	def create
+		#make sure one admin can only have one gym
 		@admin = current_admin
 		if @admin.gyms.create(name: params[:gym][:name])
 			redirect_to root_path

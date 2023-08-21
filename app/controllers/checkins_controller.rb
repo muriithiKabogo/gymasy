@@ -14,8 +14,9 @@ class CheckinsController < ApplicationController
 
   def create
     @member = Member.find(params[:id])
+    @gym = Gym.find_by(admin_id: current_admin.id)
     if !Checkin.exists?(member_id: @member.id,created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day) == true
-      @member.checkins.create(paid: false)
+      @member.checkins.create(paid: false, gym_id: @gym.id)
       redirect_to checkins_path
     else
       puts "Tumefikiwa nani"
