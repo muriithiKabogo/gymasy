@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", registrations: "admins/registrations" }
   get 'static_pages/index'
   get 'static_pages/settings'
+  get 'static_pages/analytics'
   root 'static_pages#index'
   resources :gyms
   resources :members, except: :create

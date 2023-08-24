@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_admin! , except: :analytics
   def index
     @admin = current_admin
     @gym = Gym.find_by(admin_id: current_admin.id)
@@ -17,4 +17,14 @@ class StaticPagesController < ApplicationController
   def settings
       @admin = current_admin
   end
+
+  def analytics
+
+    @gyms = Gym.all
+    @admins = Admin.all
+    @members = Member.all
+    @checkins = Checkin.all
+
+  end
+
 end
