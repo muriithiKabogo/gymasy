@@ -14,9 +14,10 @@ class MembersController < ApplicationController
   def create
     @admin = current_admin
     @url  = new_member_password_url
+    @gym_name = @admin.gyms.first.name
     @member = @admin.members.build(email: params[:member][:email], firstname: params[:member][:firstname], password: params[:member][:password])
     if @member.save
-      MemberMailer.welcome_email(@member, @url).deliver_now
+      MemberMailer.welcome_email(@member, @url, @gym_name).deliver_now
       redirect_to root_path
     else
       flash[:notice] = "This person is already registered"

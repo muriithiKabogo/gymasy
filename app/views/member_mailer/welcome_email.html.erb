@@ -4,9 +4,11 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-<h1>Welcome to the Gym Management System, <%= @user.firstname %></h1>
+ <p>Hi <%= @user.firstname %>,</p> 
+ 
+<h5>Welcome to <%=@gym_name%></h5>
 <p>
-  You have successfully signed up to Gym Management<br>
+  You have successfully signed up to <%=@gym_name%><br>
 </p>
 <p>
   To login to the site, just follow this link: <%= @url %> to create a new password.
