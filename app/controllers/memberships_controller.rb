@@ -1,6 +1,11 @@
 class MembershipsController < ApplicationController
   before_action :authenticate_admin!
 
+    def index
+      @admin = current_admin
+      @members = @admin.members
+    end
+
   def new
     @admin = current_admin
     @member = Member.find(params[:id])
@@ -21,6 +26,5 @@ class MembershipsController < ApplicationController
     end
   end
 
-  def index
-  end
+
 end

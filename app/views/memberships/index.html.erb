@@ -1,2 +1,181 @@
-<h1>Memberships#index</h1>
-<p>Find me in app/views/memberships/index.html.erb</p>
+
+<!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <%= render "layouts/sidebarmenu"%>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+          <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar"
+          >
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+                 <div class="nav-item d-flex align-items-center">
+                  <div class="nav-item d-flex align-items-center">
+                  <!-- <i class="bx bx-search fs-4 lh-0"></i>
+                  <input
+                    type="text"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search..."
+                    aria-label="Search..."
+                  /> -->
+                  
+                </div>
+
+                
+
+                </div>
+              </div>
+              <!-- /Search -->
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- Place this tag where you want the button to render. -->
+                <li class="nav-item lh-1 me-3">
+                  
+                </li>
+
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                <!--   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                    <div class="avatar avatar-online">
+                      
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                      
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      
+                    </li>
+                    <li>
+                      
+                    </li>
+                    <li>
+                      
+                    </li>
+                    <li>
+                      <div class="dropdown-divider"></div>
+                    </li>
+                    <li>
+                      
+                    </li>
+                  </ul> -->
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+          </nav>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <div class="row">
+              	
+                <div class="col-lg-12 mb-4 order-0">
+
+                	<!-- table number 1 -->
+               <div class="card">
+
+                <% if flash[:notice] %>
+                  <div class="alert alert-info">
+                    <%= flash[:notice] %>
+                  </div>
+                <% end %>
+
+                <h5 class="card-header"> All your Members and the Membership types </h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table table-borderless">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Membership Type</th>
+                        <th>Start Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    	<% @members.each do |member|%>
+                      <tr>
+                       
+                        <%if member.memberships.present?%>
+
+                        <td><%=member.firstname%> </td>
+
+                        <td><%= MembershipType.find(member.memberships.first.membership_type_id).membership_name%></td>
+
+                        <td><%= member.memberships.first.start_date.strftime("%d of %B, %Y")%></td>
+                        <%else%>
+ 
+                       <%end%>
+                      </tr>
+                       <%end%>
+                    <tr>
+                      <td></td>
+                    </tr>
+                    </tbody>
+
+                  </table>
+                </div>
+
+              </div>
+<!-- table number 1 -->
+                </div>
+
+                
+
+              </div>
+              <div class="row">
+                <!-- Order Statistics -->
+                <div >
+
+                	
+                </div>
+                
+                <!--/ Transactions -->
+              </div>
+            </div>
+            <!-- / Content -->
+
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              
+            </footer>
+            <!-- / Footer -->
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+    
+
+
+

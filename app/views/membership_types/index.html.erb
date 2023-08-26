@@ -100,7 +100,8 @@
                     <div class="card-body">
                       <h5 class="card-title"><%=type.membership_name.capitalize%></h5>
                       <p class="card-text">Price: <%=type.price%></p>
-                      <%= button_to "Delete", [type], method: :delete, class: "btn btn-primary"%>
+                       <p class="card-text">Members: <%=Membership.all.where(membership_type_id: type.id).count%></p>
+                      <!-- <%= button_to "Delete", [type], method: :delete, class: "btn btn-primary"%> -->
                     </div>
                   </div>
                 </div>
