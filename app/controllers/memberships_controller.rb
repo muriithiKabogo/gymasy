@@ -10,6 +10,7 @@ class MembershipsController < ApplicationController
     @admin = current_admin
     @member = Member.find(params[:id])
     @membership = Membership.new
+    @membership_types = @admin.membership_types
   end
 
   def create

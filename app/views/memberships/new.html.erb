@@ -107,7 +107,7 @@
                             <%=f.hidden_field :member_id , value: @member.id%>
                           <div class="mb-3 row">
                             <%= f.label :membership_type_id ,class: "form-label"%>
-                            <%= f.collection_select :membership_type_id, MembershipType.all, :id, :membership_name , {},{:class=>'form-select'}%>
+                            <%= f.collection_select :membership_type_id, @membership_types, :id, :membership_name , {},{:class=>'form-select'}%>
                           </div>
 
                           <div class="mb-3 row">
