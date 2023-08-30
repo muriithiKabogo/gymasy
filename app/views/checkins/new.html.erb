@@ -107,6 +107,10 @@
                   <div class="alert alert-info">
                     <%= flash[:notice] %>
                   </div>
+                  <%elsif flash[:success] %>
+                  <div class="alert alert-success">
+                    <%= flash[:success] %>
+                  </div>
                 <% end %>
 
                 <h5 class="card-header"> Checkin People Today </h5>

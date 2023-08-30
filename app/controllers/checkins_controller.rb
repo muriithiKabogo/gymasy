@@ -17,10 +17,11 @@ class CheckinsController < ApplicationController
     @gym = Gym.find_by(admin_id: current_admin.id)
     if !Checkin.exists?(member_id: @member.id,created_at: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day) == true
       @member.checkins.create(paid: false, gym_id: @gym.id)
-      redirect_to checkins_path
+      flash[:success] = "#{@member.firstname} has been successfully checked in"
+      redirect_to new_checkin_path
     else
       puts "Tumefikiwa nani"
-       flash[:notice] = "User has already Checked In"
+      flash[:notice] = "User has already Checked In"
       redirect_to new_checkin_path
     end
   end
