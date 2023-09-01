@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+ <p>Hi <%= @user.firstname %>,</p> 
+ 
+<h3>You against you won in <%=(Date.current - 1.month).strftime('%B %Y')%>  </h3>
+<p>
+  This is not totally accurate but we tried to note it down for you.
+</p>
+
+ <h3> You came to <%=@gym_name%> a total of <%=@checkins%> times 🎉🎉🎉</h3>
+<p>You are a star</p>
+</body>
+</html>
