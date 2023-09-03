@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'static_pages/index'
   get 'static_pages/settings'
   get 'static_pages/analytics'
+  get 'static_pages/landing_page'
   root 'static_pages#index'
   resources :gyms
   resources :members, except: :create

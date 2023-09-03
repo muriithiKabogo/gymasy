@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :authenticate_admin! , except: :analytics
+  before_action :authenticate_admin! , except: [:analytics, :landing_page]
   def index
     @admin = current_admin
     @gym = Gym.find_by(admin_id: current_admin.id)
@@ -24,6 +24,10 @@ class StaticPagesController < ApplicationController
     @admins = Admin.all
     @members = Member.all
     @checkins = Checkin.all
+
+  end
+
+  def landing_page
 
   end
 
