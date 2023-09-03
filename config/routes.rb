@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'static_pages/settings'
   get 'static_pages/analytics'
   get 'static_pages/landing_page'
-  root 'static_pages#index'
+  root 'static_pages#landing_page'
   resources :gyms
   resources :members, except: :create
   # Name it however you want
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
 
   get '/member' => "members#index", :as => :member_root
+  get '/admin' => "static_pages#index", :as => :admin_root
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
