@@ -10,7 +10,7 @@ class GymsController < ApplicationController
 		#make sure one admin can only have one gym
 		@admin = current_admin
 		if @admin.gyms.create(name: params[:gym][:name])
-			redirect_to root_path
+			redirect_to admin_root_path
 		else
 			render 'new', status: :unprocessable_entity
 		end

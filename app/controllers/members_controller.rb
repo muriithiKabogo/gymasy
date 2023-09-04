@@ -18,7 +18,7 @@ class MembersController < ApplicationController
     @member = @admin.members.build(email: params[:member][:email], firstname: params[:member][:firstname], password: params[:member][:password])
     if @member.save
       MemberMailer.welcome_email(@member, @url, @gym_name).deliver_now
-      redirect_to root_path
+      redirect_to admin_root_path
     else
       flash[:notice] = "This person is already registered"
       render :new, status: :unprocessable_entity
