@@ -1,5 +1,9 @@
 class GymsController < ApplicationController
 	before_action :authenticate_admin!
+	
+	def index
+	end
+
 	def new
 		@admin = current_admin
 		@gym = Gym.new
