@@ -103,7 +103,7 @@
                         <% @checkins.each do |checkin|%>
                       <tr>
 
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%=Member.find(checkin.member_id).firstname%></strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><%=checkin.member.firstname%></strong></td>
                         <td><%=checkin.created_at.strftime("%d of %B, %Y")%></td>
                        
                       </tr>
